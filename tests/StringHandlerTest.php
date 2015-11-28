@@ -179,10 +179,10 @@ class StringHandlerTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertTrue('string'->toBool());
         $this->assertTrue('true'->toBool());
-        $this->assertTrue('false'->toBool());
         $this->assertTrue('1'->toBool());
-        $this->assertFalse(''->toBool());
+        $this->assertFalse('false'->toBool());
         $this->assertFalse('0'->toBool());
+        $this->assertFalse(''->toBool());
     }
 
     public function testToFloat()

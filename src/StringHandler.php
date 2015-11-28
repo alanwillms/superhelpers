@@ -150,6 +150,9 @@ class StringHandler implements Castable, Nullable
 
     public static function toBool($self) : bool
     {
+        if ($self === 'false') {
+            return false;
+        }
         return boolval($self);
     }
 
