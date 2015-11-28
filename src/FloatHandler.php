@@ -32,4 +32,14 @@ class FloatHandler extends NumericHandler implements Castable, Nullable
     {
         return strval($self);
     }
+
+    public static function ceil(float $self) : int
+    {
+        return ceil($self);
+    }
+
+    public static function floor(float $self) : int
+    {
+        return floor($self);
+    }
 }

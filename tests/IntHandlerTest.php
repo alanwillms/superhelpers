@@ -43,17 +43,24 @@ class IntHandlerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('-123', (-123)->toString());
     }
 
+    public function testRound()
+    {
+        $this->assertEquals(1.0, (1)->round());
+        $this->assertEquals(1.0, (1)->round(2));
+        $this->assertEquals(20.0, (15)->round(-1));
+    }
+
+    public function testAbsolute()
+    {
+        $this->assertEquals(0, (0)->absolute());
+        $this->assertEquals(56, (-56)->absolute());
+        $this->assertEquals(93, (93)->absolute());
+    }
+
     public function testChar()
     {
         $this->assertEquals('A', (65)->char());
         $this->assertEquals('{', (123)->char());
-    }
-
-    public function testDenominator()
-    {
-        $this->assertEquals(1, (0)->denominator());
-        $this->assertEquals(1, (123)->denominator());
-        $this->assertEquals(1, (-456)->denominator());
     }
 
     public function testDownTo()
@@ -112,13 +119,6 @@ class IntHandlerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(0, (-1)->next());
         $this->assertEquals(1, (0)->next());
         $this->assertEquals(2, (1)->next());
-    }
-
-    public function testRound()
-    {
-        $this->assertEquals(1.0, (1)->round());
-        $this->assertEquals(1.0, (1)->round(2));
-        $this->assertEquals(20.0, (15)->round(-1));
     }
 
     public function testTimes()

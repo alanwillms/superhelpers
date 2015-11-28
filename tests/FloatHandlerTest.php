@@ -28,8 +28,8 @@ class FloatHandlerTest extends \PHPUnit_Framework_TestCase
     public function testToInt()
     {
         $this->assertEquals(0, (0.0)->toInt());
-        $this->assertEquals(123, (123.0)->toInt());
-        $this->assertEquals(-123, (-123.0)->toInt());
+        $this->assertEquals(123, (123.4)->toInt());
+        $this->assertEquals(-123, (-123.4)->toInt());
     }
 
     public function testToArray()
@@ -42,5 +42,35 @@ class FloatHandlerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('123', (123.0)->toString());
         $this->assertEquals('-123', (-123.0)->toString());
         $this->assertEquals('12.34', (12.34)->toString());
+    }
+
+    public function testRound()
+    {
+        $this->assertEquals(1.0, (0.99)->round());
+        $this->assertEquals(1.0, (1.001)->round(2));
+        $this->assertEquals(20.0, (15.0)->round(-1));
+    }
+
+    public function testAbsolute()
+    {
+        $this->assertEquals(0.0, (0.0)->absolute());
+        $this->assertEquals(56.11, (-56.11)->absolute());
+        $this->assertEquals(93.418, (93.418)->absolute());
+    }
+
+    public function testCeil()
+    {
+        $this->assertEquals(2, (1.2)->ceil());
+        $this->assertEquals(2, (2.0)->ceil());
+        $this->assertEquals(-1, (-1.2)->ceil());
+        $this->assertEquals(-2, (-2.0)->ceil());
+    }
+
+    public function testFloor()
+    {
+        $this->assertEquals(1, (1.2)->floor());
+        $this->assertEquals(2, (2.0)->floor());
+        $this->assertEquals(-2, (-1.2)->floor());
+        $this->assertEquals(-2, (-2.0)->floor());
     }
 }

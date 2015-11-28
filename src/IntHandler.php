@@ -38,11 +38,6 @@ class IntHandler extends NumericHandler implements Castable, Nullable
         return chr($self);
     }
 
-    public static function denominator(int $self) : int
-    {
-        return 1;
-    }
-
     public static function downTo(int $self, int $to = 0)
     {
         for ($i = $self; $i >= $to; $i--) {
@@ -75,11 +70,6 @@ class IntHandler extends NumericHandler implements Castable, Nullable
     public static function next(int $self) : int
     {
         return $self + 1;
-    }
-
-    public static function round(int $self, int $precision = 0) : float
-    {
-        return round($self, $precision);
     }
 
     public static function times(int $self, \Closure $callback)
