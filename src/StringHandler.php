@@ -1,7 +1,7 @@
 <?php
 namespace superhandlers;
 
-class StringHandler
+class StringHandler implements Castable
 {
     public static function capitalize(string $self) : string
     {
@@ -143,32 +143,32 @@ class StringHandler
         return array_values(array_filter(explode($separator, $self)));
     }
 
-    public static function isNull(string $self) : bool
+    public static function isNull($self) : bool
     {
         return false;
     }
 
-    public static function toBool(string $self) : bool
+    public static function toBool($self) : bool
     {
         return boolval($self);
     }
 
-    public static function toFloat(string $self) : float
+    public static function toFloat($self) : float
     {
         return floatval($self);
     }
 
-    public static function toInt(string $self, int $base = 10) : int
+    public static function toInt($self, int $base = 10) : int
     {
         return intval($self, $base);
     }
 
-    public static function toArray(string $self) : array
+    public static function toArray($self) : array
     {
         return $self->chars();
     }
 
-    public static function toString(string $self) : string
+    public static function toString($self) : string
     {
         return $self;
     }
