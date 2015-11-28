@@ -1,7 +1,7 @@
 <?php
 namespace superhandlers;
 
-class StringHandler implements Castable
+class StringHandler implements Castable, Nullable
 {
     public static function capitalize(string $self) : string
     {

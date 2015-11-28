@@ -1,7 +1,7 @@
 <?php
 namespace superhandlers;
 
-class NullHandler implements Castable
+class NullHandler implements Castable, Nullable
 {
     public static function isNull($self) : bool
     {
