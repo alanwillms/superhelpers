@@ -1,0 +1,19 @@
+{
+    "name": "alanwillms/superhandlers",
+    "description": "Handlers for PHP scalar objects extension.",
+    "keywords": ["scalar", "object", "handler", "helper"],
+    "authors": [
+        {
+            "name": "Alan Michel Willms Quinot",
+            "email": "dyulax@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "superhandlers\\": "src"
+        }
+    }
+}
