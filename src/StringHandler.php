@@ -3,6 +3,39 @@ namespace superhandlers;
 
 class StringHandler implements Castable, Nullable
 {
+    public static function isNull($self) : bool
+    {
+        return false;
+    }
+
+    public static function toBool($self) : bool
+    {
+        if ($self === 'false') {
+            return false;
+        }
+        return boolval($self);
+    }
+
+    public static function toFloat($self) : float
+    {
+        return floatval($self);
+    }
+
+    public static function toInt($self, int $base = 10) : int
+    {
+        return intval($self, $base);
+    }
+
+    public static function toArray($self) : array
+    {
+        return $self->chars();
+    }
+
+    public static function toString($self) : string
+    {
+        return $self;
+    }
+
     public static function capitalize(string $self) : string
     {
         $self = mb_strtolower($self);
@@ -141,39 +174,6 @@ class StringHandler implements Castable, Nullable
     public static function split(string $self, string $separator = ' ') : array
     {
         return array_values(array_filter(explode($separator, $self)));
-    }
-
-    public static function isNull($self) : bool
-    {
-        return false;
-    }
-
-    public static function toBool($self) : bool
-    {
-        if ($self === 'false') {
-            return false;
-        }
-        return boolval($self);
-    }
-
-    public static function toFloat($self) : float
-    {
-        return floatval($self);
-    }
-
-    public static function toInt($self, int $base = 10) : int
-    {
-        return intval($self, $base);
-    }
-
-    public static function toArray($self) : array
-    {
-        return $self->chars();
-    }
-
-    public static function toString($self) : string
-    {
-        return $self;
     }
 
     /**
