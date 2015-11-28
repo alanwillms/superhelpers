@@ -169,6 +169,12 @@ class StringHandlerTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse('hello'->startsWith(['heaven', 'paradise']));
     }
 
+    public function testIsNull()
+    {
+        $this->assertFalse('string'->isNull());
+        $this->assertFalse(''->isNull());
+    }
+
     public function testToBool()
     {
         $this->assertTrue('string'->toBool());
@@ -205,6 +211,13 @@ class StringHandlerTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals(['h', 'e', 'l', 'l', 'o'], 'hello'->toArray());
         $this->assertEquals([], ''->toArray());
+    }
+
+    public function testToString()
+    {
+        $this->assertEquals('hello', 'hello'->toString());
+        $this->assertEquals('açaí', 'açaí'->toString());
+        $this->assertEquals('', ''->toString());
     }
 
     // Main ignored methods from Ruby String API:

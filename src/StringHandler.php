@@ -143,6 +143,11 @@ class StringHandler
         return array_values(array_filter(explode($separator, $self)));
     }
 
+    public static function isNull(string $self) : bool
+    {
+        return false;
+    }
+
     public static function toBool(string $self) : bool
     {
         return boolval($self);
@@ -161,6 +166,11 @@ class StringHandler
     public static function toArray(string $self) : array
     {
         return $self->chars();
+    }
+
+    public static function toString(string $self) : string
+    {
+        return $self;
     }
 
     /**
